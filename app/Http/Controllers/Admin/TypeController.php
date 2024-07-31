@@ -22,8 +22,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        $types = new Type();
-        return view('admin.types.create', compact('types'));
+        $type = new Type();
+        return view('admin.types.create', compact('type'));
     }
 
     /**
@@ -31,7 +31,13 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-
+        // così è a mano, sennò c'è altro modo come al solito
+        $data = $request->validate(["
+        'name"=> "required|string|min:3|max:30|unique:types",
+        'colour'=>"required|hex_color"]
+        );
+        $type = Type::create($data);
+        return redirect()->route('admin.projects.show', $type);
     }
 
     /**
@@ -54,9 +60,15 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->validate(["
+        'name"=> "required|string|min:3|max:30|unique:types",
+        'colour'=>"required|hex_color"]
+        );
+
+        $type->update($data);
+        return redirect()->route('admin.projects.show', $type);
     }
 
     /**
@@ -64,6 +76,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return redirect()->route('admin.projects.index');
     }
 }
