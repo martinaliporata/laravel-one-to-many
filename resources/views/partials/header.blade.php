@@ -10,6 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
+                @if (Route::has('admin.types.create'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.types.create') }}">{{ __('Create a new type') }}</a>
+                    </li>
+                @endif
+                @if (Route::has('admin.types.index'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.types.index') }}">{{ __('Types') }}</a>
+                    </li>
+                @endif
                 @if (Route::has('admin.projects.index'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.projects.index') }}">{{ __('Projects') }}</a>

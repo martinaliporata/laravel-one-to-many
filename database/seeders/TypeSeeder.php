@@ -15,12 +15,10 @@ class TypeSeeder extends Seeder
     public function run(Faker $faker): void
     {
         $typesName=[
-            "Laravel",
-            "CSS",
-            "HTML",
-            "PHP",
-            "Javascript",
-            "Vue",
+            "Backend",
+            "Frontend",
+            "Back office",
+            "Front office",
         ];
         foreach($typesName as $typeName){
             $type = new Type();

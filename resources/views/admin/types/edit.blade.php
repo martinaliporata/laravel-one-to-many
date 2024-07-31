@@ -1,11 +1,11 @@
-@extends(('admin.projects.layouts.create-or-edit'))
+@extends(('admin.types.layouts.create-or-edit'))
 
 @section('page-title')
     Edit project
 @endsection
 
 @section('form-action')
-    {{route('admin.projects.update', $project)}}
+    {{route('admin.types.update', $type)}}
 @endsection
 
 @section('form-method')

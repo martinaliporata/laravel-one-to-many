@@ -6,32 +6,26 @@
         <table class="table table-hover table-dark table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Preview</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Colour</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($projects as $project)
+                @foreach ($types as $type)
                     <tr>
-                        <td>{{$project->id}}</td>
-                        <td>{{$project->type->name}}</td>
-                        <td>{{$project->title}}</td>
-                        <td><em>{{$project->date}}</em></td>
-                        <td>{{$project->author}}</td>
-                        <td>{{$project->preview}}</td>
+                        <td>{{$type->id}}</td>
+                        <td>{{$type->name}}</td>
+                        <td>{{$type->colour}}</td>
                         <td>
-                            <a href="{{route('admin.projects.show', $project)}}" class="btn btn-success btn-sm">Show</a>
-                            <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{route('admin.types.show', $type)}}" class="btn btn-success btn-sm">Show</a>
+                            <a href="{{route('admin.types.edit', $type)}}" class="btn btn-primary btn-sm">Edit</a>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        {{$projects->links()}}
+        {{$types->links()}}
     </div>
 </div>
 @endsection

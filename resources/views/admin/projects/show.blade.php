@@ -9,5 +9,14 @@
         <h2>{{$project->author}}</h2>
         <p>{{$project->preview}}</p>
     </div>
+    <div>
+        <a href="{{route('admin.projects.index')}}" class="btn btn-primary btn-sm">Return to projects' list</a>
+        <a href="{{route('admin.projects.edit')}}" class="btn btn-primary btn-sm"> Edit</a>
+        <form action="{{route('admin.projects.index')}}" method="POST" class="d-inline-block form-destroyer">
+            @method("delete")
+            @csrf
+            <input type="submit" class="btn btn-warning btn-sm" value="Delete">
+        </form>
+    </div>
 </div>
 @endsection
