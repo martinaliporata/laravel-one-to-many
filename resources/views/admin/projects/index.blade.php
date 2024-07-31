@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
                     <th scope="col">Date</th>
@@ -17,6 +18,7 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{$project->id}}</td>
+                        <td>{{$project->type->name}}</td>
                         <td>{{$project->title}}</td>
                         <td><em>{{$project->date}}</em></td>
                         <td>{{$project->author}}</td>

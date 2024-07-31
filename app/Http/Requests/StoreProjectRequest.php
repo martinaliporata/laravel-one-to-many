@@ -24,6 +24,8 @@ class StoreProjectRequest extends FormRequest
         return [
             "title"=> ["required", "string", "unique:projects", "min:3", "max:255"],
             "preview"=>["required", "string", "min:3", "max:250"],
+            // esiste nella tabella con la colonna id
+            "type_id"=>["required", "integer", "exists:types,id"],
         ];
     }
 }

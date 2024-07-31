@@ -10,9 +10,14 @@ class Project extends Model
 
     // ecco le fillable
     protected $fillable=[
+        'type_id',
         'title',
         'author',
         'date',
         'preview'
     ];
+
+    public function type(){
+        return $this->belongsTo(Type::class);
+    }
 }
